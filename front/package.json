@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "proxy": "localhost:8080",
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.1.6",
