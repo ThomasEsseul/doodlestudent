@@ -34,7 +34,7 @@ services:
     ports: 
       - 80:8080
     volumes: 
-      - ./api/server-confs:/server-confs:ro
+      - ./server-confs:/server-confs:ro
     environment:
       - SERVER_NAME=roneul.diverse-team.fr pad.roneul.diverse-team.fr phpmyadmin.roneul.diverse-team.fr
       - SERVE_FILES=yes
