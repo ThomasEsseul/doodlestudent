@@ -1,0 +1,51 @@
+version: "3.8"
+services:
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_ROOT_PASSWORD=tlc
+      - MYSQL_DATABASE=tlc
+      - MYSQL_USER=tlc
+      - MYSQL_PASSWORD=tlc
+  etherpad:
+    image: etherpad/etherpad:stable
+    ports:
+      - "9001:9001"
+    volumes:
+      - ./APIKEY.txt:/opt/etherpad-lite/APIKEY.txt
+  mail:
+    image: bytemark/smtp
+    restart: always
+    ports:
+      - "2525:25"
+  api:
+    image: simba-api
+    ports: 
+      - "8080:8080"
+  front:
+    image: simba-front
+    build: 
+      context: ./front
+      dockerfile: Dockerfile
+      target: prod
+    ports: 
+      - 80:8080
+    volumes: 
+      - ./api/server-confs:/server-confs:ro
+    environment:
+      - SERVER_NAME=roneul.diverse-team.fr pad.roneul.diverse-team.fr phpmyadmin.roneul.diverse-team.fr
+      - SERVE_FILES=yes
+      - DISABLE_DEFAULT_SERVER=no
+      - PROXY_REAL_IP=yes
+      - AUTO_LETS_ENCRYPT=no
+      - REDIRECT_HTTP_TO_HTTPS=no
+      - USE_LIMIT_REQ=no
+      - HTTP2=no
+      - FEATURE_POLICY=accelerometer 'none'; ambient-light-sensor 'none'; autoplay 'none'; camera 'none'; display-capture 'none';
+  myadmin:
+    image: phpmyadmin
+    environment: 
+      - PMA_ABSOLUTE_URI=https://phpmyadmin.roneul.diverse-team.fr
