@@ -17,7 +17,7 @@ For french native speaker that wants to follow the course. The course web page i
 # Déploiement
 
 ```bash
-docker build -t simba-front ./front
+# docker build -t simba-front ./front
 docker build -t simba-api ./api
-docker-compose up
+docker-compose up --build
 ```

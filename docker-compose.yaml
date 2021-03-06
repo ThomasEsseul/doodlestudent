@@ -35,6 +35,7 @@ services:
       - 80:8080
     volumes: 
       - ./server-confs:/server-confs:ro
+      # - ./front/dist:/www:ro
     environment:
       - SERVER_NAME=roneul.diverse-team.fr pad.roneul.diverse-team.fr phpmyadmin.roneul.diverse-team.fr
       - SERVE_FILES=yes
