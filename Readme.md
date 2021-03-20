@@ -12,12 +12,12 @@ Néanmoins la configuration nginx est faite comme si nous pouvions correctement 
 En l'état, seule la première fonctionne.
 
 ## Déploiement
-
+Sur la vm, ou en local :
 ```bash
 # docker build -t simba-front ./front
 docker build -t simba-api ./api
 docker-compose up --build
 ```
-
+Le front est alors accessible sur le port 80.
 ## Diagramme de déploiement
 ![Deployment diagram](diagrams/simba_deploy.png)
