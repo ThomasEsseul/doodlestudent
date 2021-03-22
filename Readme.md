@@ -9,6 +9,7 @@ Néanmoins la configuration nginx est faite comme si nous pouvions correctement 
   roneul.diverse-team.fr | Front
   pad.roneul.diverse-team.fr | Etherpad
   phpmyadmin.diverse-team.fr | PHPMyAdmin
+  
 En l'état, seule la première fonctionne.
 
 ## Déploiement
